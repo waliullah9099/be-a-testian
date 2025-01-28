@@ -39,3 +39,23 @@ it("it shoild provided correct sum if an array numeric string is provided", () =
   // Assertion
   expect(result).toBe(expectedResult);
 });
+
+it("it shoild through an error if no arguments passed", () => {
+  // try {
+  //   const error = add();
+  // } catch (error) {
+  //   expect(error).toBeDefined();
+  // }
+
+  const resultFn = () => {
+    add();
+  };
+  expect(resultFn).toThrow();
+});
+
+it("it shoild through an error if multiple argument is passed", () => {
+  const resultFn = () => {
+    add(1, 2, 3, 4);
+  };
+  expect(resultFn).toThrow(/is not iterable/i);
+});
